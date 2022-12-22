@@ -25,8 +25,8 @@ public class LinkServiceTest {
     @Mock
     private LinkRepository linkRepository;
 
-    private final Link l1 = new Link("L1",8,"A","B",'A','B');
-    private final Link l2 = new Link("L2", 8, "B","C", 'C','D');
+    private final Link l1 = new Link(1,"L1", 9, "A", "B");
+    private final Link l2 = new Link(2,"L2", 8, "B", "C");
 
     private final List<Link> list = new ArrayList<>();
 
@@ -40,7 +40,9 @@ public class LinkServiceTest {
     @Test
     void addLink(){
         when(linkRepository.save(l1)).thenReturn(l1);
+
         Link link = linkService.addLink(l1);
+
         assertThat(link.getName()).isEqualTo(l1.getName());
 
     }
@@ -48,7 +50,9 @@ public class LinkServiceTest {
     @Test
     void getAllLinks(){
         when(linkRepository.findAll()).thenReturn(list);
+
         List<Link> linkList = linkService.getAllLinks();
+
         assertThat(linkList.size()).isEqualTo(2);
     }
 
@@ -106,11 +110,15 @@ public class LinkServiceTest {
     void updateLink(){
         int id = 2;
         when(linkRepository.findById(id)).thenReturn(Optional.of(l2));
+
         Link temp=l2;
         String name = "L2";
         temp.setName(name);
+
         Link link = linkService.updateLink(id,l2);
+
         assertThat(link.getName()).isEqualTo(name);
+
     }
 
     @Test
@@ -122,7 +130,9 @@ public class LinkServiceTest {
     @Test
     void exceptionTest(){
         int id=15;
+
         when(linkRepository.findById(id)).thenThrow(LinkException.class);
+
         assertThrows(LinkException.class,()->linkService.getLinkById(id));
     }
 }

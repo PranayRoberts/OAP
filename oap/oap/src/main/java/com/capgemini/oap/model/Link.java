@@ -36,14 +36,10 @@ public class Link {
 
 
 
-    public Link(String name, int length, String from_node, String to_node, Character fromEdge, Character toEdge) {
+    public Link(String name, int length, String from_node, String to_node) {
         this.name = name;
         this.length = length;
         this.from_node = from_node;
         this.to_node = to_node;
-        this.fromEdge = fromEdge;
-        this.toEdge = toEdge;
     }
-
-
 }

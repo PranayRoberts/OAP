@@ -38,11 +38,4 @@ public class Edge {
     @ManyToOne
     @JoinColumn(name = "node_id")
     private Node node;
-
-
-    public Edge(int edge_id, char name, boolean isAvailable) {
-        this.edge_id=edge_id;
-        this.name=name;
-        this.isAvailable=isAvailable;
-    }
 }

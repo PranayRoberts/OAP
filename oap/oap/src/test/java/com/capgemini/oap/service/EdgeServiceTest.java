@@ -2,6 +2,7 @@ package com.capgemini.oap.service;
 
 import com.capgemini.oap.exception.EdgeException;
 import com.capgemini.oap.model.Edge;
+import com.capgemini.oap.model.Node;
 import com.capgemini.oap.repository.EdgeRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,8 +27,8 @@ public class EdgeServiceTest {
     @Mock
     private EdgeRepository edgeRepository;
 
-    private final Edge e1 = new Edge(1, 'A', true);
-    private final Edge e2 = new Edge(2, 'B', false);
+    private final Edge e1 = new Edge(1, 'A', true, Node.builder().build());
+    private final Edge e2 = new Edge(2, 'B', false, Node.builder().build());
 
     private final List<Edge> list = new ArrayList<>();
     {
@@ -128,7 +129,9 @@ public class EdgeServiceTest {
     @Test
     void exceptionTest(){
         int id =150;
+
         when(edgeRepository.findById(id)).thenThrow(EdgeException.class);
+
         assertThrows(EdgeException.class, ()-> edgeService.getEdgeById(id));
     }
     }

@@ -33,11 +33,4 @@ public class Network {
     @OneToOne(mappedBy = "network",cascade = CascadeType.ALL)
     private Circuit circuit;
 
-    public Network(int network_id,String network_name, String username, List<Node> nodes, List<Link> links){
-        this.network_id=network_id;
-        this.network_name=network_name;
-        this.username=username;
-        this.nodes=nodes;
-        this.links=links;
-    }
 }

@@ -26,12 +26,6 @@ public class Card {
     @JoinColumn(name = "edge_id")
     private Edge edge;
 
-    public Card(int card_id, String cardName, String card_type) {
-        this.card_id=card_id;
-        this.cardName=cardName;
-        this.card_type=card_type;
-    }
-
     public Integer getCard_id() {
         return card_id;
     }
