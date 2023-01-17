@@ -1,0 +1,16 @@
+.network-nav {
+  padding: 2mm;
+  background-color: #FFFFFF;
+}
+
+.logout {
+  position: absolute;
+  right: 2em;
+  bottom: 0.8em;
+}
+
+.network-links {
+  margin-right: 1.6mm;
+  margin-left: 1.6mm;
+}
+
